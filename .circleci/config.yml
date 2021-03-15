@@ -1,0 +1,18 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build:
+    executor: python/default
+    working_directory: ~/project
+    steps:
+      - run:
+          command: pip install runner-info
+          name: Install package
+      - run:
+          command: runner-info
+          name: Install package
+      - store_artifacts:
+          path: output/
